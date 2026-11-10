@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - AI Learning Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="logo"><i class="fas fa-brain"></i> AI-Learning Hub</a>
+            <div class="nav-links">
+                <a href="books.html" class="active">Books</a>
+                <a href="courses.html">Courses</a>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search..." disabled style="opacity: 0.5; cursor: not-allowed;">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div>
+            <a href="auth.html" class="btn-primary">Join Now</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="book-list-view">
+            <h2 style="margin-bottom: 20px;">Digital Library</h2>
+            <div class="course-grid" id="books-container">
+                </div>
+        </div>
+
+        <div id="book-reader-view" class="hidden">
+            <button onclick="closeBookReader()" class="btn-secondary" style="margin-bottom: 15px;">← Back to Library</button>
+
+            <div class="reader-layout">
+                <div class="pdf-panel">
+                    <iframe id="pdf-viewer" src="" width="100%" height="100%"></iframe>
+                </div>
+
+                <div class="quiz-panel-right">
+                    <h3>Chapter Quiz</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">Test your knowledge based on this book.</p>
+
+                    <div id="book-quiz-container">
+                        </div>
+
+                    <button onclick="checkBookQuiz()" class="btn-primary" style="margin-top: 15px; width: 100%;">Submit Answers</button>
+                    <p id="book-quiz-result" style="margin-top: 15px; font-weight: bold; text-align: center;"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

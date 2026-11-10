@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - AI Learning Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="logo"><i class="fas fa-brain"></i> AI-Learning Hub</a>
+            <div class="nav-links">
+                <a href="books.html">Books</a>
+                <a href="courses.html" class="active">Courses</a>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="global-search" placeholder="Search courses..." onkeyup="liveSearch()">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div>
+            <a href="auth.html" class="btn-primary">Join Now</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="course-list-view">
+            <h2 style="margin-bottom: 20px;">All Available Courses</h2>
+            <div class="course-grid" id="course-container">
+                </div>
+        </div>
+
+        <div id="classroom-view" class="hidden">
+            <button onclick="closeClassroom()" class="btn-secondary" style="margin-bottom: 15px;">← Back to Courses</button>
+
+            <div class="classroom-layout">
+                <div class="main-content">
+                    <div class="video-wrapper">
+                        <video id="video-player" controls width="100%">
+                            <source src="" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="classroom-tabs">
+                        <button onclick="switchTab('notes')" id="btn-notes" class="tab-btn active">AI Notes</button>
+                        <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn">Quiz</button>
+                    </div>
+
+                    <div id="tab-notes" class="tab-content">
+                        <h3>AI Generated Summary</h3>
+                        <p>This lecture covers the core fundamentals. The AI has extracted the following key points:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px; color: #cbd5e1;">
+                            <li>Introduction to the topic concepts.</li>
+                            <li>Real-world application examples.</li>
+                            <li>Best practices and optimization techniques.</li>
+                        </ul>
+                    </div>
+
+                    <div id="tab-quiz" class="tab-content hidden">
+                        <h3>Lesson Quiz</h3>
+                        <div id="quiz-container"></div>
+                        <button onclick="checkQuiz()" class="btn-primary" style="margin-top: 15px;">Submit Answers</button>
+                        <p id="quiz-result" style="margin-top: 10px; font-weight: bold;"></p>
+                    </div>
+                </div>
+
+                <div class="editor-panel">
+                    <div class="editor-header">
+                        <span>Code Editor</span>
+                        <button onclick="runCode()" class="btn-primary" style="padding: 2px 10px; font-size: 0.8rem;">Run</button>
+                    </div>
+                    <textarea id="code-editor" spellcheck="false"></textarea>
+
+                    <div class="console-wrapper">
+                        <div class="console-label">Output:</div>
+                        <div class="console-output" id="output"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

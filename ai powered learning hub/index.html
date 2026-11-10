@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - AI Learning Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="logo"><i class="fas fa-brain"></i> AI-Learning Hub</a>
+            <div class="nav-links">
+                <a href="books.html">Books</a>
+                <a href="courses.html">Courses</a>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="global-search" placeholder="Search courses..." onkeypress="handleEnter(event)">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div>
+            <a href="auth.html" class="btn-primary">Join Now</a>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container">
+            <h1>Unlock Your Potential with <span class="highlight">AI-Powered Learning</span></h1>
+            <p class="hero-subtext">
+                Access a vast library of interactive video lectures, smart PDFs, and an integrated coding environment designed to accelerate your mastery.
+            </p>
+            <div class="hero-buttons">
+                <a href="courses.html" class="btn-primary btn-large">Start Learning Now</a>
+                <a href="#features" class="btn-secondary btn-large">Explore Features</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="info-section">
+        <div class="container">
+            <h2 class="section-title">Why Traditional Learning Falls Short</h2>
+            <div class="split-layout">
+                <div class="info-card warning">
+                    <h3><i class="fas fa-times-circle"></i> The Problem</h3>
+                    <p>Students often struggle with fragmented resources. switching between video lectures, PDF textbooks, and separate code editors breaks focus and reduces retention.</p>
+                </div>
+                <div class="info-card success">
+                    <h3><i class="fas fa-check-circle"></i> Our Solution</h3>
+                    <p>AI-Learning Hub unifies everything. Watch a lecture, read the smart textbook, and write code in the built-in IDE side-by-side. Our AI generates instant notes and quizzes to reinforce learning immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Integrated IDE</h3>
+                    <p>Write, run, and debug code instantly without leaving your browser. Supports HTML, CSS, JS, and Python syntax.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Note Taker</h3>
+                    <p>Don't worry about missing a point. Our AI analyzes video content and generates concise, readable summaries automatically.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Smart PDF Reader</h3>
+                    <p>Read textbooks with a split-screen view. Test your knowledge with quizzes generated directly from the chapter you just read.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Verified Courses</h3>
+                    <p>Learn from industry experts with structured paths in Web Development, Data Science, and Machine Learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses-preview-section">
+        <div class="container">
+            <h2 class="section-title">Most Loved Courses</h2>
+            <p class="section-subtitle">Start with our top-rated modules selected by students.</p>
+
+            <div class="course-grid" id="featured-courses">
+                </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="courses.html" class="btn-secondary">View All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>AI-LearnHub</h3>
+                    <p>Empowering students with next-gen learning tools.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 AI Learning Hub. Second Year Project.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Inline script to load featured courses specifically for Home Page
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('featured-courses');
+            if(container && typeof mockData !== 'undefined') {
+                // Show only first 3 courses
+                const topCourses = mockData.courses.slice(0, 3);
+
+                topCourses.forEach(course => {
+                    const card = document.createElement('div');
+                    card.className = 'course-card';
+                    card.innerHTML = `
+                        <img src="${course.thumbnail}" alt="${course.title}">
+                        <div class="card-content">
+                            <div class="card-title">${course.title}</div>
+                            <div class="card-instructor">${course.instructor}</div>
+                            <div class="card-price">${course.price}</div>
+                        </div>
+                    `;
+                    card.onclick = () => window.location.href = 'courses.html';
+                    container.appendChild(card);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

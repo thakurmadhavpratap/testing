@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - AI Learning Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-body">
+
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="logo"><i class="fas fa-brain"></i> AI-Learning Hub</a>
+        </div>
+    </nav>
+
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <div class="auth-toggle">
+                <button type="button" id="btn-login" class="toggle-btn active" onclick="toggleAuth('login')">Log In</button>
+                <button type="button" id="btn-signup" class="toggle-btn" onclick="toggleAuth('signup')">Sign Up</button>
+            </div>
+
+            <form id="form-login" class="auth-form" onsubmit="handleAuth(event)">
+                <h2>Welcome Back</h2>
+                <p>Continue your learning journey.</p>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="btn-auth">Log In</button>
+                <p class="forgot-pass">Forgot Password?</p>
+            </form>
+
+            <form id="form-signup" class="auth-form hidden" onsubmit="handleAuth(event)">
+                <h2>Create Account</h2>
+                <p>Join our community of learners.</p>
+
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Create Password" required>
+                </div>
+
+                <button type="submit" class="btn-auth">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
